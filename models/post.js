@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Message = sequelize.define("Message", {
+  const Post = sequelize.define("Post", {
     title: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -18,17 +18,13 @@ module.exports = (sequelize, DataTypes) => {
       len: [1]
     }
   });
-  Message.associate = models => {
-    Message.hasOne(models.Quicklink, {
-      foreignKey: "messageID",
-      allowNull: false,
-      onDelete: "CASCADE"
-    });
-    Message.belongsTo(models.User, {
+
+  Post.associate = models => {
+    Post.belongsTo(models.User, {
       foreignKey: "userID",
-      allowNull: false,
-      onDelete: "CASCADE"
+      onDelete: "CASCADE",
+      allowNull: false
     });
   };
-  return Message;
+  return Post;
 };
