@@ -1,0 +1,20 @@
+{
+  "development": {
+    "use_env_variable": "DATABASE_URL",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "admin",
+    "password": null,
+    "database": "cloverleaf-test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "admin",
+    "password": null,
+    "database": "cloverleaf-dev",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
