@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 
 const User = require("../../models/User");
 //route to login
-router.get("/", (req,res) => {
+router.get("/test", (req,res) => {
    res.json({ msg: "Login User"});
 });
 
@@ -35,8 +35,28 @@ router.post("/signup", (req, res) => {
       });
 });
 
+//rout to login & return token
 router.post("/login", (req,res) => {
+   const email = req.body.email;
+   const password = req.body.password;
 
+   //find user
+   User.findOne({ where: {email: req.body.email}})
+      .then(user => {
+         if(!user) {
+            return res.status(404).json({email: "User Not Found"})
+         }
+
+         bcrypt.compare(password, user.password)
+            .then((match) => {
+               if(match) {
+                  res.json({msg: "Success!"});
+               } else {
+                  return res.status(400).json({password: "Password Incorrect"})
+               }
+               
+            });
+      });
 });
 
 
