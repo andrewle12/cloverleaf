@@ -1,6 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    queryInterface.createTable("Quicklinks", {
+    return queryInterface.createTable("Quicklinks", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -28,8 +28,8 @@ module.exports = {
         type: Sequelize.DATE
       }
     });
+  },
+  down: function(queryInterface, Sequelize) {
+    return queryInterface.dropTable("Quicklinks");
   }
 };
-export function down(queryInterface, Sequelize) {
-  return queryInterface.dropTable("Quicklinks");
-}
