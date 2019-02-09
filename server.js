@@ -1,5 +1,5 @@
 const express = require("express");
-const passport = require('passport');
+const passport = require("passport");
 
 //importing api routes
 const users = require("./routes/api/users");
@@ -11,10 +11,14 @@ const app = express();
 //set PORT
 const PORT = process.env.PORT || 3001;
 
+//socket dependencies
+var path = require("path");
+var server = require("http").createServer(app);
+var io = require("socket.io")(server);
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -28,10 +32,74 @@ require("./config/passport")(passport);
 
 
 //app routes
-app.use("/api/users",users);
-app.use("/api/posts",posts);
+app.use("/api/users", users);
+app.use("/api/posts", posts);
 
 //set app to listen on port
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
+
+// Chatroom
+
+var numUsers = 0;
+
+io.on("connection", socket => {
+  var addedUser = false;
+
+  // when the client emits 'new message', this listens and executes
+  socket.on("new message", data => {
+    // we tell the client to execute 'new message'
+    socket.broadcast.emit("new message", {
+      username: socket.username,
+      message: data
+    });
+  });
+
+  // when the client emits 'add user', this listens and executes
+  socket.on("add user", username => {
+    if (addedUser) return;
+
+    // we store the username in the socket session for this client
+    socket.username = username;
+    ++numUsers;
+    addedUser = true;
+    socket.emit("login", {
+      numUsers: numUsers
+    });
+    // echo globally (all clients) that a person has connected
+    socket.broadcast.emit("user joined", {
+      username: socket.username,
+      numUsers: numUsers
+    });
+  });
+
+  // when the client emits 'typing', we broadcast it to others
+  socket.on("typing", () => {
+    socket.broadcast.emit("typing", {
+      username: socket.username
+    });
+  });
+
+  // when the client emits 'stop typing', we broadcast it to others
+  socket.on("stop typing", () => {
+    socket.broadcast.emit("stop typing", {
+      username: socket.username
+    });
+  });
+
+  // when the user disconnects.. perform this
+  socket.on("disconnect", () => {
+    if (addedUser) {
+      --numUsers;
+
+      // echo globally that this client has left
+      socket.broadcast.emit("user left", {
+        username: socket.username,
+        numUsers: numUsers
+      });
+    }
+  });
+});
+
+module.exports = app;
