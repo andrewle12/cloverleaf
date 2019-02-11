@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const key = require("../../server/config/keys");
 const passport = require("passport");
 
-const User = require("../../models/User");
+const User = require("../../controllers/usersController");
 //route to login
 router.get("/test", (req,res) => {
    res.json({ msg: "Login User"});
@@ -13,7 +13,7 @@ router.get("/test", (req,res) => {
 
 //route to sign up
 router.post("/signup", (req, res) => {
-   User.findOne({ where: {email: req.body.email}})
+   User.findAll({ where: {email: req.body.email}})
       .then((user) => {
          if(user) {
             return res.status(400).json({email: "Email already in use"});

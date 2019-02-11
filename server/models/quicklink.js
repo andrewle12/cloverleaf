@@ -1,4 +1,4 @@
-export default (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => {
   const Quicklink = sequelize.define(
     "Quicklink",
     {
@@ -11,6 +11,7 @@ export default (sequelize, DataTypes) => {
   );
   Quicklink.associate = function(models) {
     Quicklink.belongsToMany(models.User, {
+      through: "UserQuicklink",
       foreignKey: "userID",
       allowNull: true
     });

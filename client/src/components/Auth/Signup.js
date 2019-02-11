@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import classnames from 'classnames';
+import React, { Component } from "react";
+import classnames from "classnames";
+import axios from "axios";
 
 class Register extends Component {
   constructor() {
@@ -36,7 +36,7 @@ class Register extends Component {
     };
 
     axios
-      .post('/api/users/register', newUser)
+      .post('/api/users/signup', newUser)
       .then(res => console.log(res.data))
       .catch(err => this.setState({ errors: err.response.data }));
   }
@@ -116,10 +116,6 @@ class Register extends Component {
                   {errors.email && (
                     <div className="invalid-feedback">{errors.email}</div>
                   )}
-                  <small className="form-text text-muted">
-                    This site uses Gravatar so if you want a profile image, use
-                    a Gravatar email
-                  </small>
                 </div>
                 <div className="form-group">
                   <input
