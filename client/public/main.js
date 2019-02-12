@@ -37,9 +37,10 @@ $(function() {
   const addParticipantsMessage = data => {
     var message = "";
     if (data.numUsers === 1) {
-      message += "there's 1 lonely person";
+      message += "You are the only person currently in the chatroom";
     } else {
-      message += "there are " + data.numUsers + " people in here...";
+      message +=
+        "there are " + data.numUsers + " people currently in the chatroom...";
     }
     log(message);
   };
@@ -242,7 +243,7 @@ $(function() {
     connected = true;
     // Display the welcome message
     var message =
-      "Welcome to the Ruin Your Friendships Chatroom! ~Be nice to each other ;) ";
+      "Welcome to the Cloverleaf Chatroom! ~Be nice to each other ;) ";
     log(message, {
       prepend: true
     });

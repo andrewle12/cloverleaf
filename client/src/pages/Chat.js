@@ -13,7 +13,7 @@ function Chat() {
         </li>
         <li className="login page">
           <div className="form">
-            <h3 className="title">What do you want to be called?</h3>
+            <h3 className="title">What's your name?</h3>
             <input className="usernameInput" type="text" maxLength="14" />
           </div>
         </li>
