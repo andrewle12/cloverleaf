@@ -19,6 +19,7 @@ var io = require("socket.io")(server);
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static("public"));
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -28,16 +29,15 @@ if (process.env.NODE_ENV === "production") {
 //setting passport middleware
 app.use(passport.initialize());
 
-require("./config/passport")(passport);
-
+// require("./config/passport")(passport);
 
 //app routes
 app.use("/api/users", users);
 app.use("/api/posts", posts);
 
 //set app to listen on port
-app.listen(PORT, () => {
-  console.log(`🌎 ==> API server now on port ${PORT}!`);
+server.listen(PORT, () => {
+  console.log("Server listening at port %d", PORT);
 });
 
 // Chatroom
