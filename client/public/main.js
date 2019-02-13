@@ -1,3 +1,5 @@
+const presentTime = moment().format("MMMM Do YYYY, h:mm:ss a");
+
 $(function() {
   var FADE_TIME = 150; // ms
   var TYPING_TIMER_LENGTH = 400; // ms
@@ -75,7 +77,7 @@ $(function() {
       });
       // tell server to execute 'new message' and send along one parameter
       socket.emit("new message", message);
-      console.log(username + ": " + message);
+      console.log(username + " (" + presentTime + " )" + ": " + message);
     }
   };
 
