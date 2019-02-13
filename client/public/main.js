@@ -1,5 +1,3 @@
-const presentTime = moment().format("MMMM Do YYYY, h:mm:ss a");
-
 $(function() {
   var FADE_TIME = 150; // ms
   var TYPING_TIMER_LENGTH = 400; // ms
@@ -65,6 +63,7 @@ $(function() {
 
   // Sends a chat message
   const sendMessage = () => {
+    var presentTime = moment().format("MMMM Do YYYY, h:mm:ss a");
     var message = $inputMessage.val();
     // Prevent markup from being injected into the message
     message = cleanInput(message);
