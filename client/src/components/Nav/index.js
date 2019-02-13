@@ -1,27 +1,28 @@
 import React from "react";
+import "./style.css";
 
 function Nav() {
   return (
     <div>
-      <h1 className="text-center bg-success text-light">CloverLeaf</h1>
-      <ul className="nav">
+      <h1 className="font text-center bg-success text-light">CloverLeaf</h1>
+      <ul className="navfont nav">
         <li className="nav-item ml-5">
-          <a className="nav-link active" href="/">
+          <a className="nav-link active text-dark" href="/">
             Home
           </a>
         </li>
         <li className="nav-item ml-5">
-          <a className="nav-link" href="/yard">
+          <a className="nav-link text-dark" href="/yard">
             Yard
           </a>
         </li>
         <li className="nav-item ml-5">
-          <a className="nav-link" href="/posts">
+          <a className="nav-link text-dark" href="/posts">
             Posts
           </a>
         </li>
         <li className="nav-item ml-5">
-          <a className="nav-link disabled" href="/help">
+          <a className="nav-link disabled text-dark" href="/help">
             Help
           </a>
         </li>
