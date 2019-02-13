@@ -75,6 +75,7 @@ $(function() {
       });
       // tell server to execute 'new message' and send along one parameter
       socket.emit("new message", message);
+      console.log(username + ": " + message);
     }
   };
 
