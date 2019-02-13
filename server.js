@@ -29,7 +29,7 @@ if (process.env.NODE_ENV === "production") {
 //setting passport middleware
 app.use(passport.initialize());
 
-// require("./config/passport")(passport);
+require("./server/config/passport")(passport);
 
 //app routes
 app.use("/api/users", users);
