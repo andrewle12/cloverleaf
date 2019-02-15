@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import FriendsCard from "../components/FriendsCard";
 import Chat from "../components/Chat";
+import TopicsList from "../components/TopicsList";
 
 function Home() {
   return (
@@ -31,7 +32,9 @@ function Home() {
           <Col size="md-6">
             <Chat />
           </Col>
-          <Col size="md-3">Topics</Col>
+          <Col size="md-3">
+            <TopicsList />
+          </Col>
         </Row>
       </Container>
     </>
