@@ -4,8 +4,9 @@ import FriendsCard from "../components/FriendsCard";
 import Chat from "../components/Chat";
 import TopicsList from "../components/TopicsList";
 
-function Home() {
-  return (
+class Home extends Component {
+  render() {
+    return (
     <>
       <style type="text/css">
         {`
@@ -39,6 +40,7 @@ function Home() {
       </Container>
     </>
   );
+  }
 }
 
 export default Home;
