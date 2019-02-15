@@ -1,9 +1,10 @@
-import React from "react";
+import React, {Component} from "react";
 import { Col, Row, Container } from "../components/Grid";
 import FriendsCard from "../components/FriendsCard";
 import Chat from "../components/Chat";
 
-function Home() {
+class Home extends Component {
+  render() {
     return (
     <Container fluid>
       <Row>
@@ -13,10 +14,13 @@ function Home() {
         <Col size="md-4">
           <Chat />
         </Col>
-        <Col size="md-4">Topics</Col>
+        <Col size="md-4">
+          Topics
+        </Col>
       </Row>
     </Container>
     );
+  }
 }
 
 export default Home;

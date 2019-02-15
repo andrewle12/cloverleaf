@@ -1,11 +1,13 @@
-import React from "react";
+import React, {Component} from "react";
 
-function Yard() {
-  return (
+class Yard extends Component {
+  render() {
+    return (
     <div>
       <h1>/yard</h1>
     </div>
-  );
+    );
+  }
 }
 
 export default Yard;
