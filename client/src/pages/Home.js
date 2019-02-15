@@ -3,8 +3,9 @@ import { Col, Row, Container } from "../components/Grid";
 import FriendsCard from "../components/FriendsCard";
 import Chat from "../components/Chat";
 
-function Home() {
-  return (
+class Home extends Component {
+  render() {
+    return (
     <>
       <style type="text/css">
         {`
@@ -36,6 +37,7 @@ function Home() {
       </Container>
     </>
   );
+  }
 }
 
 export default Home;
