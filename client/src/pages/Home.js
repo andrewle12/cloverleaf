@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Row, Container } from "../components/Grid";
 import FriendsCard from "../components/FriendsCard";
-import GeneralChat from "../components/GeneralChat";
+import Chat from "../components/Chat";
 
 function Home() {
     return (
@@ -11,7 +11,7 @@ function Home() {
           <FriendsCard />
         </Col>
         <Col size="md-4">
-          <GeneralChat />
+          <Chat />
         </Col>
         <Col size="md-4">Topics</Col>
       </Row>

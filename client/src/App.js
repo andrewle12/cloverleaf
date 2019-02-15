@@ -9,7 +9,6 @@ import Posts from "./pages/Posts";
 import Yard from "./pages/Yard";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
-import Chat from "./pages/Chat";
 
 function App() {
   return (
@@ -24,7 +23,6 @@ function App() {
           <Route exact path="/channel" component={Channel} />
           <Route exact path="/posts" component={Posts} />
           <Route exact path="/yard" component={Yard} />
-          <Route exact path="/chat" component={Chat} />
           <Route component={NoMatch} />
         </Switch>
       </div>

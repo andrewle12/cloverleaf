@@ -13,8 +13,7 @@ html {
 
 html,
 input {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
-    Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: 'Indie Flower', cursive;
 }
 
 html,
@@ -41,8 +40,9 @@ ul {
 .page {
   height: 83%;
   position: absolute;
-  width: 40%;
-  margin: auto;
+  width: 90%;
+  margin-top: 25px;
+  border: 2px solid black;
 }
 
 /* Login Page */
@@ -96,7 +96,6 @@ ul {
 
 .messages {
   font-size: 95%;
-  background-color: #a6cb60;
 }
 
 .inputMessage {
