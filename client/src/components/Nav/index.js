@@ -7,7 +7,7 @@ function Nav() {
       <h1 className="font text-center bg-success text-light">CloverLeaf</h1>
       <ul className="navfont nav">
         <li className="nav-item ml-5">
-          <a className="nav-link active text-dark" href="/">
+          <a className="nav-link active text-dark" href="/home">
             Home
           </a>
         </li>

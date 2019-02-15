@@ -4,6 +4,7 @@ const passport = require("passport");
 //importing api routes
 const users = require("./routes/api/users");
 const posts = require("./routes/api/posts");
+// const user = require("./server/models/user")
 
 //init app
 const app = express();

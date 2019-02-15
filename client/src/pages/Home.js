@@ -23,15 +23,15 @@ function Home() {
     }
     `}
       </style>
-      <Container fluid variant="d-flex flex-column h-100">
-        <Row variant="justify-content-around align-items-stretch">
-          <Col size="md-4">
+      <Container>
+        <Row>
+          <Col size="md-3">
             <FriendsCard />
           </Col>
-          <Col size="md-4">
+          <Col size="md-6">
             <Chat />
           </Col>
-          <Col size="md-4">Topics</Col>
+          <Col size="md-3">Topics</Col>
         </Row>
       </Container>
     </>
