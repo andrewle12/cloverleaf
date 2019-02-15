@@ -39,9 +39,10 @@ ul {
 }
 
 .page {
-  height: 100%;
+  height: 83%;
   position: absolute;
-  width: 100%;
+  width: 40%;
+  margin: auto;
 }
 
 /* Login Page */
@@ -94,7 +95,7 @@ ul {
 /* Font */
 
 .messages {
-  font-size: 150%;
+  font-size: 95%;
 }
 
 .inputMessage {
