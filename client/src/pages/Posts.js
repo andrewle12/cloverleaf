@@ -1,11 +1,13 @@
-import React from "react";
+import React, {Component} from "react";
 
-function Posts() {
-  return (
+class Posts extends Component{
+  render() {
+    return (
     <div>
       <h1>/posts</h1>
     </div>
-  );
+    );
+  }
 }
 
 export default Posts;
