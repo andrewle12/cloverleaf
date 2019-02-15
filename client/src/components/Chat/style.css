@@ -48,7 +48,7 @@ ul {
 /* Login Page */
 
 .login.page {
-  background-color: #000;
+  background-color: #a6cb60;
 }
 
 .login.page .form {
@@ -96,6 +96,7 @@ ul {
 
 .messages {
   font-size: 95%;
+  background-color: #a6cb60;
 }
 
 .inputMessage {
