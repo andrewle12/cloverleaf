@@ -8,6 +8,7 @@ const db = require("./server/config/keys").mongoURI;
 //importing api routes
 const users = require("./routes/api/users");
 const posts = require("./routes/api/posts");
+// const user = require("./server/models/user")
 
 //mLab connection
 mongoose.connect(db)
@@ -34,6 +35,9 @@ app.use(express.static("public"));
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+app.get("*", (req, res) =>
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+);
 
 //setting passport middleware
 app.use(passport.initialize());
