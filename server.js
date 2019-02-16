@@ -1,9 +1,18 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const passport = require("passport");
+
+//db key
+const db = require("./server/config/keys").mongoURI;
 
 //importing api routes
 const users = require("./routes/api/users");
 const posts = require("./routes/api/posts");
+
+//mLab connection
+mongoose.connect(db)
+  .then(() => console.log("Connected to Mongo"))
+  .catch((err) => console.log(err));
 
 //init app
 const app = express();
