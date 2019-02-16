@@ -13,22 +13,22 @@ import Yard from "./pages/Yard";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 
-import jwt_decode from 'jwt-decode';
-import setToken from './redux/setToken';
-import { setCurrentUser, logoutUser } from './redux/actions/auth';
+import jwt_decode from "jwt-decode";
+import setToken from "./redux/setToken";
+import { setCurrentUser, logoutUser } from "./redux/actions/auth";
 
 import { Provider } from "react-redux";
 import store from "./redux/store";
 
-if(localStorage.jwtToken) {
+if (localStorage.jwtToken) {
   setToken(localStorage.jwtToken);
   const decode = jwt_decode(localStorage.jwtToken);
   store.dispatch(setCurrentUser(decode));
 
   const currentTime = Date.now() / 1000;
-  if(decode.exp < currentTime) {
+  if (decode.exp < currentTime) {
     store.dispatch(logoutUser());
-    window.location.href = "./login"
+    window.location.href = "./login";
   }
 }
 
@@ -55,7 +55,6 @@ class App extends Component {
                 <Route exact path="/channel" component={Channel} />
                 <Route exact path="/posts" component={Posts} />
                 <Route exact path="/yard" component={Yard} />
-                <Route exact path="/chat" component={Chat} />
                 <Route component={NoMatch} />
               </Switch>
             </div>
@@ -63,7 +62,7 @@ class App extends Component {
         </Provider>
       </>
     );
-  } 
+  }
 }
 
 export default App;
