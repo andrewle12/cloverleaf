@@ -11,9 +11,10 @@ const posts = require("./routes/api/posts");
 // const user = require("./server/models/user")
 
 //mLab connection
-mongoose.connect(db)
+mongoose
+  .connect(db)
   .then(() => console.log("Connected to Mongo"))
-  .catch((err) => console.log(err));
+  .catch(err => console.log(err));
 
 //init app
 const app = express();
