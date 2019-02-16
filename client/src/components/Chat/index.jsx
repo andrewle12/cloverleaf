@@ -20,7 +20,7 @@ function Chat() {
       
       html,
       input {
-        font-family: "Indie Flower", cursive;
+        font-family: "Josefin Sans", sans-serif;
       }
       
       html,
@@ -47,9 +47,8 @@ function Chat() {
       .page {
         height: 83%;
         position: absolute;
-        width: 90%;
-        margin-top: 25px;
-        border: 2px solid black;
+        width: 100%;
+        margin-top: 18px;
       }
       
       /* Login Page */
@@ -121,6 +120,7 @@ function Chat() {
       .chatArea {
         height: 100%;
         padding-bottom: 60px;
+        background-color: #ffffff;
       }
       
       .messages {
@@ -161,7 +161,7 @@ function Chat() {
       .messages li {
         position: relative;
         background: #CCCCCC;
-        border-radius: .4em;
+        border-radius: .5em;
         margin: 2px;
         padding: 2px 5px;
       }
@@ -181,8 +181,8 @@ function Chat() {
       `}
       </style>
       <div>
-        <ul className="pages">
-          <li className="chat page">
+        <ul className="pages font shadow">
+          <li className="chat page shadow">
             <div className="chatArea">
               <ul className="messages" />
             </div>
@@ -190,9 +190,9 @@ function Chat() {
           </li>
           <li className="login page">
             <div className="form">
-              <h3 className="title">What's your name?</h3>
+              <h3 className="title font">What's your name?</h3>
               <input
-                className="usernameInput"
+                className="usernameInput font"
                 type="text"
                 maxLength="14"
                 defaultValue="DEV1"
