@@ -24,7 +24,7 @@ app.use(express.static("public"));
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("build"));
+  app.use(express.static("client/build"));
 }
 
 //setting passport middleware
@@ -35,9 +35,6 @@ require("./server/config/passport")(passport);
 //app routes
 app.use("/api/users", users);
 app.use("/api/posts", posts);
-app.get("*", (req, res) =>
-  res.sendFile(path.join(__dirname, "./client/build/index.html"))
-);
 
 //set app to listen on port
 server.listen(PORT, () => {
