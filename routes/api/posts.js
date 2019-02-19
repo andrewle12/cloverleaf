@@ -1,35 +1,35 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const mongoose = require('mongoose');
-const passport = require('passport');
+const mongoose = require("mongoose");
+const passport = require("passport");
 
 //Post Mongo Model
-const Post = require('../../server/mongoModels/Post');
+const Post = require("../../server/mongoModels/Post");
 
 // Validation
 const validatePostInput = require("../../server/validate/post");
 
 //get all posts
-router.get('/', (req, res) => {
+router.get("/", (req, res) => {
   Post.find()
     .sort({ date: -1 })
     .then(posts => res.json(posts))
-    .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
+    .catch(err => res.status(404).json({ nopostsfound: "No posts found" }));
 });
 
 //get posts by id
-router.get('/:id', (req, res) => {
+router.get("/:id", (req, res) => {
   Post.findById(req.params.id)
     .then(post => res.json(post))
     .catch(err =>
-      res.status(404).json({ nopostfound: 'No post found with that ID' })
+      res.status(404).json({ nopostfound: "No post found with that ID" })
     );
 });
 
 //create a post
 router.post(
-  '/',
-  passport.authenticate('jwt', { session: false }),
+  "/",
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const { errors, isValid } = validatePostInput(req.body);
 
@@ -52,16 +52,12 @@ router.post(
 //remove a post
 //todo
 
-
-
-
-
 // @route   POST api/posts/comment/:id
 // @desc    Add comment to post
 // @access  Private
 router.post(
-  '/comment/:id',
-  passport.authenticate('jwt', { session: false }),
+  "/comment/:id",
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const { errors, isValid } = validatePostInput(req.body);
 
@@ -85,14 +81,14 @@ router.post(
         // Save
         post.save().then(post => res.json(post));
       })
-      .catch(err => res.status(404).json({ postnotfound: 'No post found' }));
+      .catch(err => res.status(404).json({ postnotfound: "No post found" }));
   }
 );
 
 //delete comment
 router.delete(
-  '/comment/:id/:comment_id',
-  passport.authenticate('jwt', { session: false }),
+  "/comment/:id/:comment_id",
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Post.findById(req.params.id)
       .then(post => {
@@ -104,7 +100,7 @@ router.delete(
         ) {
           return res
             .status(404)
-            .json({ commentnotexists: 'Comment does not exist' });
+            .json({ commentnotexists: "Comment does not exist" });
         }
 
         // Get remove index
@@ -117,7 +113,7 @@ router.delete(
 
         post.save().then(post => res.json(post));
       })
-      .catch(err => res.status(404).json({ postnotfound: 'No post found' }));
+      .catch(err => res.status(404).json({ postnotfound: "No post found" }));
   }
 );
 
