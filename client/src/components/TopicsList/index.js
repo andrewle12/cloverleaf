@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
 // import ReactDOM from 'react-dom';
 import SuperTreeView from "react-super-treeview";
 import SyntaxHighlighter from "react-syntax-highlighter";
@@ -6,6 +7,19 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 export default class extends Component {
   constructor() {
     super();
+=======
+import "./style.css";
+// import Topics from "./topics.json";
+
+// Will take in topics
+class TopicsList extends Component {
+  constructor(props) {
+    super(props);
+      this.state = {
+        topics: []
+      };
+  }
+>>>>>>> 25ecd9afeb1613ddb6ff7bc03aaf85e9be12556f
 
     this.state = {
       data: [
@@ -215,6 +229,7 @@ export default class extends Component {
 
     render(){
     return (
+<<<<<<< HEAD
       <>
         <style type="text/css">
           {`
@@ -279,6 +294,21 @@ export default class extends Component {
         </div>
       </>
     )}
+=======
+      <div className="card mt-3 ml-1 shadow-sm">
+      <div className="card-body text-center">
+        <h5 className="header card-title">Topics</h5>
+      </div>
+      <ul className="list-group list-group-flush">
+        {/* {this.state.Topics.map(topic => {
+            <li className="list-group-item" id={topic.id}>
+                {topic.topicName}
+            </li> 
+        })} */}
+      </ul>
+      </div>
+    );
+>>>>>>> 25ecd9afeb1613ddb6ff7bc03aaf85e9be12556f
   }
 }
 

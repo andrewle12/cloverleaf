@@ -1,50 +1,49 @@
-import React, { Component } from "react";
+import React from "react";
 import { Col, Row, Container } from "../components/Grid";
 import FriendsCard from "../components/FriendsCard";
 import Chat from "../components/Chat";
 import TopicsList from "../components/TopicsList";
+import Nav from "../components/Nav";
 
-class Home extends Component {
-  render() {
-    return (
-      <>
-        <style type="text/css">
-          {`
-    .container {
+function Home() {
+  return (
+    <>
+    <style type="text/css">
+    {`
+      .container {
       display: flex;
       flex-direction: column;
-    }
-    .row {
+      }
+      .row {
       justify-content: space-around;
       align-items: stretch;
       height: 100vh;
-    }
-    .col {
+      }
+      .col {
       height: 100vh;
-    }
-    .col-md-6 {
+      }
+      .col-md-6 {
       padding: 0;
-    }
+      }
     `}
-        </style>
-        <Container>
-          <Row>
-            <Col size="md-3">
-              <FriendsCard />
-            </Col>
-
-            <Col size="md-6">
-              <Chat />
-            </Col>
-
-            <Col size="md-3">
-              <TopicsList />
-            </Col>
-          </Row>
-        </Container>
-      </>
-    );
-  }
+    </style>
+    
+    <Container>
+      <Nav />
+      <Row>
+        <Col size="md-3">
+          <FriendsCard />
+        </Col>
+        <Col size="md-6">
+          <Chat />
+        </Col>
+        <Col size="md-3">
+          <TopicsList />
+        </Col>
+      </Row>
+    </Container>
+    </>
+  );
 }
 
 export default Home;
