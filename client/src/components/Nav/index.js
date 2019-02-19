@@ -16,30 +16,28 @@ class Nav extends Component {
     const { isAuthenticated, user } = this.props.auth;
 
     const login = (
-      <ul> 
+      <>
         <li>
-          <a className="nav-link text-dark" href="/signup">
+          <a className="nav-link text-dark float-right" href="/signup">
             Sign up
           </a>
         </li>
         <li>
-        <a className="nav-link text-dark" href="/login">
+        <a className="nav-link text-dark float-right" href="/login">
           Login
         </a>
       </li>
-      </ul>
+      </>
     );
 
      const logout = (
        <> 
         <h3>Welcome, {this.props.auth.user.username}</h3>
-         <ul>
            <li>
-             <a className="nav-link text-dark" onClick={this.logoutBtn.bind(this)} href="/login">
+             <a className="nav-link text-dark float-right" onClick={this.logoutBtn.bind(this)} href="/login">
                Logout
              </a>
            </li>
-         </ul>
        </>
      );
 
@@ -87,8 +85,8 @@ class Nav extends Component {
                   Help
                 </a>
               </li>
-            </ul>
             {isAuthenticated ? logout : login}
+            </ul>
           </div>
         </Container>
       </>
