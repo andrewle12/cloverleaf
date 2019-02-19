@@ -13,7 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 //socket dependencies
-var path = require("path");
+//var path = require("path");
 var server = require("http").createServer(app);
 var io = require("socket.io")(server);
 
