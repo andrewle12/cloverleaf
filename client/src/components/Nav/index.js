@@ -2,17 +2,15 @@ import React, { Component } from "react";
 import { Container } from "../Grid/index";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { logoutUser } from "../../redux/actions/auth"; 
+import { logoutUser } from "../../redux/actions/auth";
 
 class Nav extends Component {
-
   logoutBtn(e) {
     e.preventDefault();
     this.props.logoutUser();
   }
 
   render() {
-
     const { isAuthenticated, user } = this.props.auth;
 
     const login = (
@@ -23,23 +21,27 @@ class Nav extends Component {
           </a>
         </li>
         <li>
-        <a className="nav-link text-dark float-right" href="/login">
-          Login
-        </a>
-      </li>
+          <a className="nav-link text-dark float-right" href="/login">
+            Login
+          </a>
+        </li>
       </>
     );
 
-     const logout = (
-       <> 
-        <h3>Welcome, {this.props.auth.user.username}</h3>
-           <li>
-             <a className="nav-link text-dark float-right" onClick={this.logoutBtn.bind(this)} href="/login">
-               Logout
-             </a>
-           </li>
-       </>
-     );
+    const logout = (
+      <>
+        <h5>Welcome, {user.username}</h5>
+        <li>
+          <a
+            className="nav-link text-dark float-right"
+            onClick={this.logoutBtn.bind(this)}
+            href="/login"
+          >
+            Logout
+          </a>
+        </li>
+      </>
+    );
 
     return (
       <>
@@ -85,7 +87,7 @@ class Nav extends Component {
                   Help
                 </a>
               </li>
-            {isAuthenticated ? logout : login}
+              {isAuthenticated ? logout : login}
             </ul>
           </div>
         </Container>
@@ -97,11 +99,13 @@ class Nav extends Component {
 Nav.propTypes = {
   logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
-}
+};
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   auth: state.auth
 });
 
-
-export default connect(mapStateToProps, {logoutUser})(Nav);
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(Nav);

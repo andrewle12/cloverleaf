@@ -1,15 +1,14 @@
 import React from "react";
-import {Container, Row, Col} from "../components/Grid";
+import { Container, Row, Col } from "../components/Grid";
 import Chat from "../components/Chat";
 import YardPost from "../components/YardPost";
 import YardSales from "../components/YardSales";
-import Nav from "../components/Nav";
 
 function Yard() {
-    return (
+  return (
     <>
-    <style type="text/css">
-    {`
+      <style type="text/css">
+        {`
       .container-fluid {
       display: flex;
       flex-direction: column;
@@ -27,10 +26,9 @@ function Yard() {
       padding: 0;
       }
     `}
-    </style>
-    
+      </style>
+
       <Container>
-        <Nav />
         <Row>
           <Col size="md-3">
             <YardPost />

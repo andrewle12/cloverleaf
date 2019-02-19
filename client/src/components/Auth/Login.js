@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { loginUser } from '../../redux/actions/auth';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { loginUser } from "../../redux/actions/auth";
 
 class Login extends Component {
   constructor() {
@@ -17,17 +17,16 @@ class Login extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push('/home');
+      this.props.history.push("/home");
     }
     console.log(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push('/home');
+      this.props.history.push("/home");
     }
 
     if (nextProps.errors) {
@@ -52,8 +51,7 @@ class Login extends Component {
   }
 
   render() {
-
-    const { errors } = this.state;
+    // const { errors } = this.state;
 
     return (
       <div className="login">
@@ -101,10 +99,12 @@ Login.propTypes = {
   errors: PropTypes.object.isRequired
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors
 });
 
-export default connect(mapStateToProps, { loginUser })(Login);
-
+export default connect(
+  mapStateToProps,
+  { loginUser }
+)(Login);

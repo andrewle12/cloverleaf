@@ -1,15 +1,14 @@
 import React from "react";
-import { Col, Row, Container } from "../components/Grid";
+import { Container, Row, Col } from "../components/Grid";
 import FriendsCard from "../components/FriendsCard";
 import Chat from "../components/Chat";
-import TopicsList from "../components/TopicsList";
-import Nav from "../components/Nav";
+// import TopicsList from "../components/TopicsList";
 
 function Home() {
   return (
     <>
-    <style type="text/css">
-    {`
+      <style type="text/css">
+        {`
       .container {
       display: flex;
       flex-direction: column;
@@ -26,22 +25,19 @@ function Home() {
       padding: 0;
       }
     `}
-    </style>
-    
-    <Container>
-      <Nav />
-      <Row>
-        <Col size="md-3">
-          <FriendsCard />
-        </Col>
-        <Col size="md-6">
-          <Chat />
-        </Col>
-        <Col size="md-3">
-          <TopicsList />
-        </Col>
-      </Row>
-    </Container>
+      </style>
+
+      <Container>
+        <Row>
+          <Col size="md-3">
+            <FriendsCard />
+          </Col>
+          <Col size="md-6">
+            <Chat />
+          </Col>
+          <Col size="md-3">{/* <TopicsList /> */}</Col>
+        </Row>
+      </Container>
     </>
   );
 }
