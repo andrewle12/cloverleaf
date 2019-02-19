@@ -4,8 +4,16 @@ import { Link } from 'react-router-dom';
 class Landing extends Component {
   render() {
     return (
+      <>
+      <style>
+      {`
+        .landing {
+          font-family: "Josefin Sans", sans-serif;
+        }
+      `}
+      </style>
       <div className="landing">
-        <div className="dark-overlay landing-inner text-light">
+        <div className="dark-overlay landing-inner text-dark">
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
@@ -25,6 +33,7 @@ class Landing extends Component {
           </div>
         </div>
       </div>
+      </>
     );
   }
 }

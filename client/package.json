@@ -12,9 +12,15 @@
     "react-dom": "^16.6.3",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
+<<<<<<< HEAD
+    "react-scripts": "^2.1.5",
+    "react-super-treeview": "^0.3.3",
+    "react-syntax-highlighter": "^10.1.2",
+=======
     "react-scripts": "^2.1.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
+>>>>>>> 25ecd9afeb1613ddb6ff7bc03aaf85e9be12556f
     "socket.io-client": "^2.2.0"
   },
   "scripts": {
