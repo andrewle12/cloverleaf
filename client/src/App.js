@@ -11,7 +11,6 @@ import Channel from "./pages/Channel";
 import Posts from "./pages/Posts";
 import Yard from "./pages/Yard";
 import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
 
 import jwt_decode from "jwt-decode";
 import setToken from "./redux/setToken";
@@ -46,7 +45,6 @@ class App extends Component {
         <Provider store={store}>
           <Router>
             <div>
-              <Nav />
               <Switch>
                 <Route exact path="/" component={Landing} />
                 <Route exact path="/signup" component={Signup} />

@@ -3,6 +3,7 @@ import { Col, Row, Container } from "../components/Grid";
 import FriendsCard from "../components/FriendsCard";
 import Chat from "../components/Chat";
 import TopicsList from "../components/TopicsList";
+import Nav from "../components/Nav";
 
 function Home() {
   return (
@@ -28,6 +29,7 @@ function Home() {
     </style>
     
     <Container>
+      <Nav />
       <Row>
         <Col size="md-3">
           <FriendsCard />

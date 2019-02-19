@@ -3,6 +3,7 @@ import {Container, Row, Col} from "../components/Grid";
 import Chat from "../components/Chat";
 import YardPost from "../components/YardPost";
 import YardSales from "../components/YardSales";
+import Nav from "../components/Nav";
 
 function Yard() {
     return (
@@ -29,6 +30,7 @@ function Yard() {
     </style>
     
       <Container>
+        <Nav />
         <Row>
           <Col size="md-3">
             <YardPost />
