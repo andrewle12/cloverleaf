@@ -12,6 +12,7 @@ import Posts from "./pages/Posts";
 import Yard from "./pages/Yard";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
+import Private from "./components/Private";
 
 import jwt_decode from "jwt-decode";
 import setToken from "./redux/setToken";
@@ -51,10 +52,10 @@ class App extends Component {
                 <Route exact path="/" component={Landing} />
                 <Route exact path="/signup" component={Signup} />
                 <Route exact path="/login" component={Login} />
-                <Route exact path="/home" component={Home} />
-                <Route exact path="/channel" component={Channel} />
-                <Route exact path="/posts" component={Posts} />
-                <Route exact path="/yard" component={Yard} />
+                <Private exact path="/home" component={Home} />
+                <Private exact path="/channel" component={Channel} />
+                <Private exact path="/posts" component={Posts} />
+                <Private exact path="/yard" component={Yard} />
                 <Route component={NoMatch} />
               </Switch>
             </div>
@@ -66,3 +67,4 @@ class App extends Component {
 }
 
 export default App;
+ 

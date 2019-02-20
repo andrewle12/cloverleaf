@@ -2,13 +2,15 @@ const express = require("express");
 const mongoose = require("mongoose");
 const passport = require("passport");
 
-//db key
+// db key
 const db = require("./server/config/keys").mongoURI;
 
-//importing api routes
+// importing api routes
 const users = require("./routes/api/users");
 const posts = require("./routes/api/posts");
-// const user = require("./server/models/user")
+
+// importing topics
+const topics = require("./routes/api/topics");
 
 //mLab connection
 mongoose
@@ -23,7 +25,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 //socket dependencies
-var path = require("path");
+//var path = require("path");
 var server = require("http").createServer(app);
 var io = require("socket.io")(server);
 
@@ -48,6 +50,7 @@ require("./server/config/passport")(passport);
 //app routes
 app.use("/api/users", users);
 app.use("/api/posts", posts);
+app.use("/api/topics", topics);
 
 //set app to listen on port
 server.listen(PORT, () => {
