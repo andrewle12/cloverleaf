@@ -64,8 +64,10 @@ $(function() {
     if (message && connected) {
       $inputMessage.val("");
       addChatMessage({
-        username: username + ": (" + presentTime + ") ",
-        message: message
+        username: username,
+        message: message,
+        presentDate: presentDate,
+        presentTime: presentTime
       });
       // tell server to execute 'new message' and send along one parameter
       socket.emit("new message", message);
@@ -92,9 +94,12 @@ $(function() {
     }
 
     var $usernameDiv = $('<span class="username"/>')
-      .text(data.username)
+      .text("@" + data.username + " -")
       .css("color", getUsernameColor(data.username));
-    var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
+    var $messageBodyDiv = $('<span class="messageBody">')
+      .attr("data-tooltip", data.presentDate)
+      .attr("data-tooltip-position", "top")
+      .text(data.message + " ~ " + data.presentTime);
 
     var typingClass = data.typing ? "typing" : "";
     var $messageDiv = $('<li class="message"/>')
@@ -233,7 +238,7 @@ $(function() {
     connected = true;
     // Display the welcome message
     var message =
-      "Welcome to the Cloverleaf Chatroom! ~Be nice to each other ;) ";
+      "Welcome to the Cloverleaf General! ~Be nice to each other ;) ";
     log(message, {
       prepend: true
     });
