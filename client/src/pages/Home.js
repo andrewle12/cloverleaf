@@ -13,11 +13,6 @@ function Home() {
       display: flex;
       flex-direction: column;
       }
-      .row {
-      justify-content: space-around;
-      align-items: stretch;
-      height: 100vh;
-      }
       .col {
       height: 100vh;
       }

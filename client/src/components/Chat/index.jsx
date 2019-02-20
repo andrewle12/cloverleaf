@@ -178,6 +178,11 @@ function Chat() {
         margin-top: -0.062em;
         margin-left: -0.062em;
       }
+      .row {
+        justify-content: space-around;
+        align-items: stretch;
+        height: 100vh;
+        }
       `}
       </style>
       <div>
