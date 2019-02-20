@@ -12,7 +12,7 @@ class Nav extends Component {
 
   render() {
     const { isAuthenticated, user } = this.props.auth;
-
+    console.log(user,user.userName);
     const login = (
       <>
         <li>
@@ -30,7 +30,7 @@ class Nav extends Component {
 
     const logout = (
       <>
-        <h5>Welcome, {user.username}</h5>
+        <h5>Welcome, {user.userName}</h5>
         <li>
           <a
             className="nav-link text-dark float-right"

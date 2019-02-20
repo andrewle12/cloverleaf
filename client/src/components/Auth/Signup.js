@@ -26,7 +26,6 @@ class Signup extends Component {
     if (this.props.auth.isAuthenticated) {
       this.props.history.push('/home');
     }
-    console.log(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -71,15 +70,15 @@ class Signup extends Component {
                   <input
                     type="text"
                     className={classnames('form-control form-control-lg', {
-                      'is-invalid': errors.name
+                      'is-invalid': errors.firstName
                     })}
                     placeholder="First Name"
                     name="firstName"
-                    value={this.state.name}
+                    value={this.state.firstName}
                     onChange={this.onChange}
                   />
-                  {errors.name && (
-                    <div className="invalid-feedback">{errors.name}</div>
+                  {errors.firstName && (
+                    <div className="invalid-feedback">{errors.firstName}</div>
                   )}
                 </div>
 
@@ -87,15 +86,15 @@ class Signup extends Component {
                   <input
                     type="text"
                     className={classnames('form-control form-control-lg', {
-                      'is-invalid': errors.name
+                      'is-invalid': errors.lastName
                     })}
                     placeholder="Last Name"
                     name="lastName"
-                    value={this.state.name}
+                    value={this.state.lastName}
                     onChange={this.onChange}
                   />
-                  {errors.name && (
-                    <div className="invalid-feedback">{errors.name}</div>
+                  {errors.lastName && (
+                    <div className="invalid-feedback">{errors.lastName}</div>
                   )}
                 </div>
 
@@ -103,15 +102,15 @@ class Signup extends Component {
                   <input
                     type="text"
                     className={classnames('form-control form-control-lg', {
-                      'is-invalid': errors.name
+                      'is-invalid': errors.userName
                     })}
                     placeholder="Username"
                     name="userName"
-                    value={this.state.name}
+                    value={this.state.userName}
                     onChange={this.onChange}
                   />
-                  {errors.name && (
-                    <div className="invalid-feedback">{errors.name}</div>
+                  {errors.userName && (
+                    <div className="invalid-feedback">{errors.userName}</div>
                   )}
                 </div>
 
