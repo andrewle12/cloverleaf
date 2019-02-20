@@ -17,12 +17,12 @@ class Nav extends Component {
 
     const login = (
       <>
-        <li className="nav-link float-right ml-5">
+        <li className="nav-link float-right mx-5 p-0">
           <a className="nav-link text-dark" href="/login">
             Login
           </a>
         </li>
-        <li className="nav-link float-right">
+        <li className="nav-link float-right p-0">
           <a className="nav-link text-dark" href="/signup">
             Sign up
           </a>
@@ -61,6 +61,9 @@ class Nav extends Component {
         font-size: 20px;
         background-color: #ffffff;
       }
+      .listStyle {
+        list-style-type: none;
+      }
       `}
         </style>
         <Container>
@@ -69,7 +72,7 @@ class Nav extends Component {
               CloverLeaf
             </h1>
             <div className="justify-content-between navfont nav">
-              <ul className="p-0 my-1">
+              <ul className="p-0 my-0 listStyle">
                 <li className="nav-item ml-5 float-left">
                   <a className="nav-link active text-dark" href="/home">
                     Home
@@ -91,7 +94,7 @@ class Nav extends Component {
                   </a>
                 </li>
               </ul>
-              <ul className="my-1">{isAuthenticated ? logout : login}</ul>
+              <ul className="my-0">{isAuthenticated ? logout : login}</ul>
             </div>
           </div>
         </Container>
