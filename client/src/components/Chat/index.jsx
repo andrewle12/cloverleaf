@@ -1,6 +1,13 @@
-import React from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
-function Chat() {
+
+class Chat extends Component {
+
+  render() {
+  const user = this.props.auth.user;
+  console.log(user);
   return (
     <>
       <style type="text/css">
@@ -200,7 +207,7 @@ function Chat() {
                 className="usernameInput font"
                 type="text"
                 maxLength="14"
-                defaultValue="DEV1"
+                defaultValue={`${user.userName}`}
               />
             </div>
           </li>
@@ -209,5 +216,14 @@ function Chat() {
     </>
   );
 }
+}
 
-export default Chat;
+Chat.propTypes = {
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps)(Chat);
