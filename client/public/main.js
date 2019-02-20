@@ -93,13 +93,13 @@ $(function() {
       $typingMessages.remove();
     }
 
-    var $usernameDiv = $('<span class="username"/>')
+    var $usernameDiv = $('<span class="username p-1"/>')
       .text("@" + data.username + " -")
       .css("color", getUsernameColor(data.username));
     var $messageBodyDiv = $('<span class="messageBody">')
       .attr("data-tooltip", data.presentDate)
       .attr("data-tooltip-position", "top")
-      .text(data.message + " ~ " + data.presentTime);
+      .text(data.message + " - " + data.presentTime);
 
     var typingClass = data.typing ? "typing" : "";
     var $messageDiv = $('<li class="message"/>')
