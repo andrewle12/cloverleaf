@@ -9,20 +9,22 @@ function Yard() {
     <>
       <style type="text/css">
         {`
-      .container-fluid {
+      .container {
       display: flex;
       flex-direction: column;
-      height: 100vh;
+      padding: 0;
       }
     .row {
       justify-content: space-around;
       align-items: stretch;
       height: 100vh;
+      margin: 0;
     }
     .col {
       height: 100vh;
     }
-    .col-md-6 {
+    .col-md-5,
+    .col-md-3 {
       padding: 0;
       }
     `}
