@@ -2,16 +2,14 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-
 class Chat extends Component {
-
   render() {
-  const user = this.props.auth.user;
-  console.log(user);
-  return (
-    <>
-      <style type="text/css">
-        {`
+    const user = this.props.auth.user;
+    console.log(user);
+    return (
+      <>
+        <style type="text/css">
+          {`
       .list-group-item {
         line-height: 2.5;
       }
@@ -101,9 +99,9 @@ class Chat extends Component {
       
       /* Chat page */
       
-      .chat.page {
-        display: none;
-      }
+      // .chat.page {
+      //   display: none;
+      // }
       
       /* Font */
       
@@ -191,31 +189,24 @@ class Chat extends Component {
         height: 100vh;
         }
       `}
-      </style>
-      <div>
-        <ul className="pages font shadow">
-          <li className="chat page shadow">
-            <div className="chatArea">
-              <ul className="messages" />
-            </div>
-            <input className="inputMessage" placeholder="Type here..." />
-          </li>
-          <li className="login page">
-            <div className="form">
-              <h3 className="title font">What's your name?</h3>
+        </style>
+        <div>
+          <ul className="pages font shadow">
+            <li className="chat page shadow">
+              <div className="chatArea">
+                <ul className="messages" />
+              </div>
               <input
-                className="usernameInput font"
-                type="text"
-                maxLength="14"
-                defaultValue={`${user.userName}`}
+                className="inputMessage"
+                href="/home"
+                placeholder="Type here..."
               />
-            </div>
-          </li>
-        </ul>
-      </div>
-    </>
-  );
-}
+            </li>
+          </ul>
+        </div>
+      </>
+    );
+  }
 }
 
 Chat.propTypes = {
