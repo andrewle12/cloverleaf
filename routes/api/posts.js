@@ -40,9 +40,9 @@ router.post(
     }
 
     const newPost = new Post({
-      text: req.body.text,
-      name: req.body.name,
-      user: req.user.id
+      user: req.user.id,
+      title: req.body.title,
+      body: req.body.body
     });
 
     newPost.save().then(post => res.json(post));
@@ -52,9 +52,7 @@ router.post(
 //remove a post
 //todo
 
-// @route   POST api/posts/comment/:id
-// @desc    Add comment to post
-// @access  Private
+//add comment
 router.post(
   "/comment/:id",
   passport.authenticate("jwt", { session: false }),

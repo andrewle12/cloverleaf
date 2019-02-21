@@ -7,12 +7,13 @@ const PostSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "users"
   },
-  text: {
+  title: {
     type: String,
     required: true
   },
-  name: {
-    type: String
+  body: {
+    type: String,
+    required: true
   },
   comments: [
     {
