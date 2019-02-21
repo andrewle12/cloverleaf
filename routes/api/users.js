@@ -27,7 +27,7 @@ router.post("/signup", (req, res) => {
       const newUser = new User({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        username: req.body.username,
+        userName: req.body.userName,
         email: req.body.email,
         password: req.body.password
       });
@@ -69,7 +69,7 @@ router.post("/login", (req, res) => {
 
     bcrypt.compare(password, user.password).then(match => {
       if (match) {
-        const payload = { id: user.id, username: user.username };
+        const payload = { id: user.id, userName: user.userName };
 
         jwt.sign(payload, key.secretKey, { expiresIn: 36000 }, (err, token) => {
           res.json({

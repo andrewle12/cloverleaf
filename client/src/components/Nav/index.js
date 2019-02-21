@@ -13,16 +13,18 @@ class Nav extends Component {
   render() {
     const { isAuthenticated, user } = this.props.auth;
 
+    localStorage.setItem("name", user.userName);
+
     const login = (
       <>
-        <li>
-          <a className="nav-link text-dark float-right" href="/signup">
-            Sign up
+        <li className="nav-link float-right mx-5 p-0">
+          <a className="nav-link text-dark" href="/login">
+            Login
           </a>
         </li>
-        <li>
-          <a className="nav-link text-dark float-right" href="/login">
-            Login
+        <li className="nav-link float-right p-0">
+          <a className="nav-link text-dark" href="/signup">
+            Sign up
           </a>
         </li>
       </>
@@ -30,16 +32,16 @@ class Nav extends Component {
 
     const logout = (
       <>
-        <h5>Welcome, {user.username}</h5>
-        <li>
+        <li className="nav-item float-right mx-5">
           <a
-            className="nav-link text-dark float-right"
+            className="nav-link text-dark"
             onClick={this.logoutBtn.bind(this)}
             href="/login"
           >
             Logout
           </a>
         </li>
+        <li className="nav-item float-right p-2">Welcome, {user.userName}</li>
       </>
     );
 
@@ -59,6 +61,9 @@ class Nav extends Component {
         font-size: 20px;
         background-color: #ffffff;
       }
+      .listStyle {
+        list-style-type: none;
+      }
       `}
         </style>
         <Container>
@@ -66,29 +71,31 @@ class Nav extends Component {
             <h1 className="titlefont text-center bg-success text-light pt-3 mb-0">
               CloverLeaf
             </h1>
-            <ul className="navfont nav">
-              <li className="nav-item ml-5">
-                <a className="nav-link active text-dark" href="/home">
-                  Home
-                </a>
-              </li>
-              <li className="nav-item ml-5">
-                <a className="nav-link text-dark" href="/yard">
-                  Yard
-                </a>
-              </li>
-              <li className="nav-item ml-5">
-                <a className="nav-link text-dark" href="/posts">
-                  Posts
-                </a>
-              </li>
-              <li className="nav-item ml-5">
-                <a className="nav-link disabled text-dark" href="/help">
-                  Help
-                </a>
-              </li>
-              {isAuthenticated ? logout : login}
-            </ul>
+            <div className="justify-content-between navfont nav">
+              <ul className="p-0 my-0 listStyle">
+                <li className="nav-item ml-5 float-left">
+                  <a className="nav-link active text-dark" href="/home">
+                    Home
+                  </a>
+                </li>
+                <li className="nav-item ml-5 float-left">
+                  <a className="nav-link text-dark" href="/yard">
+                    Yard
+                  </a>
+                </li>
+                <li className="nav-item ml-5 float-left">
+                  <a className="nav-link text-dark" href="/posts">
+                    Posts
+                  </a>
+                </li>
+                <li className="nav-item ml-5 float-left">
+                  <a className="nav-link disabled text-dark" href="/help">
+                    Help
+                  </a>
+                </li>
+              </ul>
+              <ul className="my-0">{isAuthenticated ? logout : login}</ul>
+            </div>
           </div>
         </Container>
       </>

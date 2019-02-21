@@ -7,7 +7,7 @@ class Login extends Component {
   constructor() {
     super();
     this.state = {
-      username: "",
+      userName: "",
       email: "",
       password: "",
       errors: {}
@@ -21,7 +21,6 @@ class Login extends Component {
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/home");
     }
-    console.log(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -38,7 +37,7 @@ class Login extends Component {
     e.preventDefault();
 
     const userData = {
-      username: this.state.username,
+      userName: this.state.userName,
       email: this.state.email,
       password: this.state.password
     };

@@ -23,8 +23,8 @@ $(function() {
   var $messages = $(".messages"); // Messages area
   var $inputMessage = $(".inputMessage"); // Input message input box
 
-  var $loginPage = $(".login.page"); // The login page
-  var $chatPage = $(".chat.page"); // The chatroom page
+  // var $loginPage = $(".login.page"); // The login page
+  // var $chatPage = $(".chat.page"); // The chatroom page
 
   // Prompt for setting a username
   var username;
@@ -48,18 +48,9 @@ $(function() {
 
   // Sets the client's username
   const setUsername = () => {
-    username = cleanInput($usernameInput.val().trim());
-
-    // If the username is valid
-    if (username) {
-      $loginPage.fadeOut();
-      $chatPage.show();
-      $loginPage.off("click");
-      $currentInput = $inputMessage.focus();
-
-      // Tell the server your username
-      socket.emit("add user", username);
-    }
+    username = cleanInput(window.localStorage.getItem("name"));
+    // Tell the server your username
+    socket.emit("add user", username);
   };
 
   // Sends a chat message
@@ -73,8 +64,10 @@ $(function() {
     if (message && connected) {
       $inputMessage.val("");
       addChatMessage({
-        username: username + ": (" + presentTime + ") ",
-        message: message
+        username: username,
+        message: message,
+        presentDate: presentDate,
+        presentTime: presentTime
       });
       // tell server to execute 'new message' and send along one parameter
       socket.emit("new message", message);
@@ -100,10 +93,13 @@ $(function() {
       $typingMessages.remove();
     }
 
-    var $usernameDiv = $('<span class="username"/>')
-      .text(data.username)
+    var $usernameDiv = $('<span class="username p-1"/>')
+      .text("@" + data.username + " -")
       .css("color", getUsernameColor(data.username));
-    var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
+    var $messageBodyDiv = $('<span class="messageBody">')
+      .attr("data-tooltip", data.presentDate)
+      .attr("data-tooltip-position", "top")
+      .text(data.message + " - " + data.presentTime);
 
     var typingClass = data.typing ? "typing" : "";
     var $messageDiv = $('<li class="message"/>')
@@ -230,11 +226,6 @@ $(function() {
 
   // Click events
 
-  // Focus input when clicking anywhere on login page
-  $loginPage.click(() => {
-    $currentInput.focus();
-  });
-
   // Focus input when clicking on the message input's border
   $inputMessage.click(() => {
     $inputMessage.focus();
@@ -247,7 +238,7 @@ $(function() {
     connected = true;
     // Display the welcome message
     var message =
-      "Welcome to the Cloverleaf Chatroom! ~Be nice to each other ;) ";
+      "Welcome to the Cloverleaf General! ~Be nice to each other ;) ";
     log(message, {
       prepend: true
     });
