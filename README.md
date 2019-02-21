@@ -1,29 +1,37 @@
-# Create React Express App
+# Cloverleaf
 
-## About This Boilerplate
+## Description
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+Cloverleaf:
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+A React site where users can post to forums, connect and photosynthesize with friends, and possibly even sell goods in the yard sale section. It’s kind of like Twitter without the character limits...and Russian bots.
 
-## Starting the app locally
+### Heroku Link:
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
+https://cloverleaf.herokuapp.com/
 
-```
-yarn install
-```
+### Running a local server
 
-This should install node modules within the server and the client folder.
+Requirements:
 
-After both installations complete, run the following command in your terminal:
+- Express
+- Mongoose
+- Passport
+- Sequelize
+- Socket.io
+- Axios
+- React
+- Redux
 
-```
-yarn start
-```
+Be sure to run `npm install` to download all of the node_module dependencies on both the server side and client side before trying to run locally! The application can be started through 'npm start'. The default port is `localhost:3000`.
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
+### Authors:
 
-## Deployment (Heroku)
+- Carl Vega
+- Andrew Le
+- Andrew Manley
+- Desiree Howell
 
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+### Acknowledgements
+
+- The Coding Bootcamp at UNC Chapel Hill
