@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
-import classnames from 'classnames';
-import { connect } from 'react-redux';
-import { registerUser } from '../../redux/actions/auth'; 
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
+import classnames from "classnames";
+import { connect } from "react-redux";
+import { registerUser } from "../../redux/actions/auth";
 
 class Signup extends Component {
   constructor() {
@@ -24,7 +24,7 @@ class Signup extends Component {
 
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push('/home');
+      this.props.history.push("/home");
     }
   }
 
@@ -62,15 +62,13 @@ class Signup extends Component {
           <div className="row">
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Sign Up</h1>
-              <p className="lead text-center">
-                Create A Cloverleaf Account
-              </p>
+              <p className="lead text-center">Create A Cloverleaf Account</p>
               <form noValidate onSubmit={this.onSubmit}>
                 <div className="form-group">
                   <input
                     type="text"
-                    className={classnames('form-control form-control-lg', {
-                      'is-invalid': errors.firstName
+                    className={classnames("form-control form-control-lg", {
+                      "is-invalid": errors.firstName
                     })}
                     placeholder="First Name"
                     name="firstName"
@@ -85,8 +83,8 @@ class Signup extends Component {
                 <div className="form-group">
                   <input
                     type="text"
-                    className={classnames('form-control form-control-lg', {
-                      'is-invalid': errors.lastName
+                    className={classnames("form-control form-control-lg", {
+                      "is-invalid": errors.lastName
                     })}
                     placeholder="Last Name"
                     name="lastName"
@@ -101,8 +99,8 @@ class Signup extends Component {
                 <div className="form-group">
                   <input
                     type="text"
-                    className={classnames('form-control form-control-lg', {
-                      'is-invalid': errors.userName
+                    className={classnames("form-control form-control-lg", {
+                      "is-invalid": errors.userName
                     })}
                     placeholder="Username"
                     name="userName"
@@ -117,8 +115,8 @@ class Signup extends Component {
                 <div className="form-group">
                   <input
                     type="email"
-                    className={classnames('form-control form-control-lg', {
-                      'is-invalid': errors.email
+                    className={classnames("form-control form-control-lg", {
+                      "is-invalid": errors.email
                     })}
                     placeholder="Email Address"
                     name="email"
@@ -132,8 +130,8 @@ class Signup extends Component {
                 <div className="form-group">
                   <input
                     type="password"
-                    className={classnames('form-control form-control-lg', {
-                      'is-invalid': errors.password
+                    className={classnames("form-control form-control-lg", {
+                      "is-invalid": errors.password
                     })}
                     placeholder="Password"
                     name="password"
@@ -147,8 +145,8 @@ class Signup extends Component {
                 <div className="form-group">
                   <input
                     type="password"
-                    className={classnames('form-control form-control-lg', {
-                      'is-invalid': errors.password2
+                    className={classnames("form-control form-control-lg", {
+                      "is-invalid": errors.password2
                     })}
                     placeholder="Confirm Password"
                     name="password2"
@@ -173,11 +171,14 @@ Signup.propTypes = {
   registerUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
-}
+};
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors
 });
 
-export default connect(mapStateToProps, { registerUser })(withRouter(Signup));
+export default connect(
+  mapStateToProps,
+  { registerUser }
+)(withRouter(Signup));
