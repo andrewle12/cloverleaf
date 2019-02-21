@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import API from "../../utilities/API";
 import "./style.css";
 
 class YardSales extends Component {
@@ -14,13 +15,18 @@ class YardSales extends Component {
   }
 
   // Loads yard sales from api
-  loadYardSales() {}
+  loadYardSales() {
+    API.getYardSales()
+      .then(res => this.setState({ yardSales: res.data }))
+      .catch(err => console.log(err));
+  }
 
   render() {
     return (
       <div className="card mt-3 mx-1 shadow-sm">
         <div className="card-body text-center">
           <h5 className="header card-title">Yard Sales</h5>
+          <h5><strong>Coming Soon!</strong></h5>
         </div>
       </div>
     );
