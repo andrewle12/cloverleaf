@@ -1,8 +1,10 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 import tokenReduce from './tokenReduce';
-import errReduce from './errReduce';
+import errReduce from "./errReduce";
+import postReduce from "./postReduce";
 
 export default combineReducers({
   auth: tokenReduce,
-  errors: errReduce
+  errors: errReduce,
+  post: postReduce
 });

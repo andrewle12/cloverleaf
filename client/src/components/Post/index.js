@@ -1,28 +1,31 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-class Post extends Component{
-   render() { 
-    return(
-        <div>
-            <h1>Create A Post</h1>
-            <form>
-                <div className="form-group">
-                    <label>Title</label>
-                    <input className="form-control"></input>
-                </div>
-                <div className="form-group">
-                    <label>Body</label>
-                    <textarea className="form-control" rows="5"></textarea>
-                </div>
-                <button type="submit" 
-                className="btn btn-primary"
-                // onClick={}
-                >Create Post
-                </button>
-            </form>
-        </div>
-    );
-  } 
+class Post extends Component {
+   
+   render() {
+      const { post } = this.props;
+      
+      return (
+         <div className="card">
+         <div className="card-body">
+           <h4 className="card-title">{post.title}</h4>
+           <h6 className="card-subtitle mb-2 text-muted">{`By, ${post.userName}`}</h6>
+           <p className="card-text">{post.body}</p>
+         </div>
+       </div>
+      )
+   }
 }
 
-export default Post;
+Post.propTypes = {
+   post: PropTypes.object.isRequired,
+   auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+   auth: state.auth
+ });
+
+ export default connect(mapStateToProps)(Post);
