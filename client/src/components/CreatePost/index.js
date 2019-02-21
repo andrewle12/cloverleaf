@@ -25,6 +25,7 @@ class CreatePost extends Component{
        e.preventDefault();
 
        const newPost = {
+           userName: this.props.auth.user.userName,
            title: this.state.title,
            body: this.state.body
        }
