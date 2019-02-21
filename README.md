@@ -10,6 +10,13 @@ A React site where users can post to forums, connect and photosynthesize with fr
 
 https://cloverleaf.herokuapp.com/
 
+### Test Login:
+
+Use this login if you would like to test the site without creating your own account.
+
+Email: andrew@manley.com
+Password: password
+
 ### Running a local server
 
 Requirements:
