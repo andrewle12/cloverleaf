@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import API from "../../utilities/API";
 import "./style.css";
 
 class YardPost extends Component {
@@ -19,11 +20,20 @@ class YardPost extends Component {
         });
     };
 
-    handleFormSubmit = event => {
+    saveYard = event => {
         event.preventDefault();
-        
-        // Save yard post to api here
-    };
+         const newTitle = event.target.title;
+         const newDescription = event.target.description
+         const newImgsrc = event.target.imgsrc;
+    
+         API.saveBook({
+          title: newTitle,
+          description: newDescription,
+          img: newImgsrc
+        })
+          .then(res => console.log(res))
+          .catch(err => console.log(err))
+      }
 
     render() {
        return(
@@ -33,26 +43,26 @@ class YardPost extends Component {
         </div>
             <form className="m-2">
                 <div className="form-group">
-                    <label for="title">Title</label>
+                    <label htmlFor="title">Title</label>
                     <input className="form-control" id="title" 
                         value={this.state.title}
-                        handleInputChange={this.handleInputChange} />
+                        onChange={this.handleInputChange} />
                 </div>
                 <div className="form-group">
-                    <label for="description">Description</label>
+                    <label htmlFor="description">Description</label>
                     <textarea className="form-control" id="description" rows="3"
                             value={this.state.description}
-                            handleInputChange={this.handleInputChange}>
+                            onChange={this.handleInputChange}>
                     </textarea>
                 </div>
-                <div class="custom-file">
-                    <label className="custom-file-label" for="customFile">Choose file</label>
+                <div className="custom-file">
+                    <label className="custom-file-label" htmlFor="customFile">Choose file</label>
                     <input type="file" className="custom-file-input" id="customFile" 
                             value={this.state.img}
-                            handleInputChange={this.handleInputChange}/>
+                            onChange={this.handleInputChange}/>
                 </div>
                 <button type="submit" className="btn btn-danger mt-2"
-                        handleFormSubmit={this.handleFormSubmit}>
+                        onClick={this.handleFormSubmit}>
                         Submit</button>
             </form>
         </div>

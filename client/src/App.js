@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Channel from "./pages/Channel";
 import Posts from "./pages/Posts";
 import Yard from "./pages/Yard";
+import Help from "./pages/Help";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import Private from "./components/Private";
@@ -52,6 +53,7 @@ class App extends Component {
                 <Route exact path="/" component={Landing} />
                 <Route exact path="/signup" component={Signup} />
                 <Route exact path="/login" component={Login} />
+                <Route exact path="/help" component={Help} />
                 <Private exact path="/home" component={Home} />
                 <Private exact path="/channel" component={Channel} />
                 <Private exact path="/posts" component={Posts} />
