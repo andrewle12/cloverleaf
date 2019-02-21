@@ -85,7 +85,7 @@ class Nav extends Component {
                 </li>
                 <li className="nav-item ml-5 float-left">
                   <a className="nav-link text-dark" href="/posts">
-                    Posts
+                    My Posts
                   </a>
                 </li>
                 <li className="nav-item ml-5 float-left">

@@ -35,9 +35,8 @@ class FriendsCard extends Component {
             <h5 className="header card-title">Friends</h5>
           </div>
           <ul className="list-group list-group-flush">
-            <li className="list-group-item">Friend #1</li>
-            <li className="list-group-item">Friend #2</li>
-            <li className="list-group-item">Friend #3</li>
+            <li className="list-group-item"><strong>Coming Soon!</strong></li>
+            
           </ul>
         </div>
       </>
