@@ -1,12 +1,25 @@
-import React from "react";
-import { Container, Row, Col } from "../components/Grid";
-import Chat from "../components/Chat";
-import YardPost from "../components/YardPost";
-import YardSales from "../components/YardSales";
+import React, {Component} from "react";
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-function Yard() {
-  return (
-    <>
+import { Container, Row, Col } from "../components/Grid";
+import YardPost from "../components/YardPost";
+import PostMap from "../components/PostMap";
+import { getPosts } from "../redux/actions/posts";
+
+import FriendsCard from "../components/FriendsCard";
+import Chat from "../components/Chat";
+
+class Yard extends Component{
+  componentDidMount() {
+    this.props.getPosts();
+  }
+
+  render() {
+    const { posts } = this.props.post;
+
+    return (
+      <>
       <style type="text/css">
         {`
       .container {
@@ -33,10 +46,16 @@ function Yard() {
       <Container>
         <Row>
           <Col size="md-3">
-            <YardPost />
+            <FriendsCard />
           </Col>
           <Col size="md-6">
-            <YardSales />
+          <YardPost />
+          <div className="card mt-3 mx-1 shadow-sm">
+            <div className="card-body text-center">
+              <h5 className="header card-title">Yard Sales</h5>
+              <PostMap posts={posts}/>
+            </div>
+          </div>
           </Col>
           <Col size="md-3">
             <Chat />
@@ -44,7 +63,17 @@ function Yard() {
         </Row>
       </Container>
     </>
-  );
+    );
+  }
 }
 
-export default Yard;
+Yard.propTypes = {
+  getPosts: PropTypes.func.isRequired,
+  post: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  post: state.post
+});
+
+export default connect(mapStateToProps, { getPosts })(Yard);
