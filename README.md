@@ -25,7 +25,7 @@ Requirements:
 
 Be sure to run `npm install` to download all of the node_module dependencies on both the server side and client side before trying to run locally! The application can be started through 'npm start'. The default port is `localhost:3000`.
 
-![screenshot](./Capture.PNG)
+![screenshot](./public/Capture.PNG)
 
 ### Authors:
 
