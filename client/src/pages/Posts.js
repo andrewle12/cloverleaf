@@ -1,11 +1,26 @@
-import React from "react";
+
+import React, {Component} from "react";
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
 import { Container, Row, Col } from "../components/Grid";
+import CreatePost from "../components/CreatePost";
+import PostMap from "../components/PostMap";
+import { getPosts } from "../redux/actions/posts";
+
 import FriendsCard from "../components/FriendsCard";
 import Chat from "../components/Chat";
 
-function Posts() {
-  return (
-    <>
+class Posts extends Component{
+  componentDidMount() {
+    this.props.getPosts();
+  }
+
+  render() {
+    const { posts } = this.props.post;
+
+    return (
+      <>
       <style type="text/css">
         {`
       .container {
@@ -35,10 +50,11 @@ function Posts() {
             <FriendsCard />
           </Col>
           <Col size="md-6">
+          <CreatePost />
           <div className="card mt-3 mx-1 shadow-sm">
             <div className="card-body text-center">
               <h5 className="header card-title">My Posts</h5>
-              <h5><strong>Coming Soon!</strong></h5>
+              <PostMap posts={posts}/>
             </div>
           </div>
           </Col>
@@ -48,7 +64,17 @@ function Posts() {
         </Row>
       </Container>
     </>
-  );
+    );
+  }
 }
 
-export default Posts;
+Posts.propTypes = {
+  getPosts: PropTypes.func.isRequired,
+  post: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  post: state.post
+});
+
+export default connect(mapStateToProps, { getPosts })(Posts);
