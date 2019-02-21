@@ -39,9 +39,6 @@ app.use(express.static("public"));
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-app.get("*", (req, res) =>
-  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
-);
 
 //setting passport middleware
 app.use(passport.initialize());
@@ -52,6 +49,10 @@ require("./server/config/passport")(passport);
 app.use("/api/users", users);
 app.use("/api/posts", posts);
 app.use("/api/topics", topics);
+
+app.get("*", (req, res) =>
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+);
 
 //set app to listen on port
 server.listen(PORT, () => {
