@@ -31,6 +31,7 @@ router.post(
     }
 
     const newPost = new Post({
+      userName: req.body.userName,
       title: req.body.title,
       body: req.body.body
     });
