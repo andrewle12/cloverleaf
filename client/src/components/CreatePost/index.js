@@ -25,6 +25,7 @@ class CreatePost extends Component{
        e.preventDefault();
 
        const newPost = {
+           userName: this.props.auth.user.userName,
            title: this.state.title,
            body: this.state.body
        }
@@ -40,29 +41,30 @@ class CreatePost extends Component{
         const { errors } = this.state;
 
         return(
-            <div>
-                <h1>Create A Post</h1>
+            <div className="card mt-3 mr-1 shadow-sm">
+            <div className="card-body">
+                <h5 className="header card-title">Create A Post</h5>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <label>Title</label>
-                        <input 
-                        className="form-control"
-                        placeholder="Enter Title"
-                        name="title"
-                        value={this.state.title}
-                        onChange={this.onChange}
-                        error={errors.title}></input>
+                    <label>Title</label>
+                    <input 
+                    className="form-control"
+                    placeholder="Enter Title"
+                    name="title"
+                    value={this.state.title}
+                    onChange={this.onChange}
+                    error={errors.title}></input>
                     </div>
                     <div className="form-group">
-                        <label>Body</label>
-                        <textarea 
-                        className="form-control"
-                        rows="5"
-                        placeholder="Enter Post Body Here"
-                        name="body"
-                        value={this.state.body}
-                        onChange={this.onChange}
-                        error={errors.body}></textarea>
+                    <label>Body</label>
+                    <textarea 
+                    className="form-control"
+                    rows="5"
+                    placeholder="Enter Post Body Here"
+                    name="body"
+                    value={this.state.body}
+                    onChange={this.onChange}
+                    error={errors.body}></textarea>
                     </div>
                     <button type="submit" 
                     className="btn btn-primary"
@@ -71,6 +73,7 @@ class CreatePost extends Component{
                     </button>
                 </form>
             </div>
+    </div>
         );
   } 
 }

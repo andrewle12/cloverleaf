@@ -8,8 +8,8 @@ const PostSchema = new Schema({
     ref: "users"
   },
   userName: {
-    type: Schema.Types.ObjectId,
-    ref: "users"
+    type: String,
+    required: true
   },
   title: {
     type: String,
