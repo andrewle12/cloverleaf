@@ -71,7 +71,7 @@ $(function() {
       });
       // tell server to execute 'new message' and send along one parameter
       socket.emit("new message", message);
-      console.log(username + " (" + presentDate + " )" + ": " + message);
+      console.log(username + ": " + message);
     }
   };
 
@@ -184,7 +184,7 @@ $(function() {
 
   // Gets the 'X is typing' messages of a user
   const getTypingMessages = data => {
-    console.log("getTypingMessages: " + data);
+    console.log("getTypingMessages: " + json.stringify(data));
     return $(".typing.message").filter(function(i) {
       return $(this).data("username") === data.username;
     });
@@ -192,7 +192,7 @@ $(function() {
 
   // Gets the color of a username through our hash function
   const getUsernameColor = username => {
-    console.log("getUsernameColor: " + username);
+    console.log("getUsernameColor: " + json.stringify(username));
     // Compute hash code
     var hash = 7;
     for (var i = 0; i < username.length; i++) {
@@ -237,7 +237,7 @@ $(function() {
 
   // Whenever the server emits 'login', log the login message
   socket.on("login", data => {
-    console.log("login: " + data);
+    console.log("login: " + json.stringify(data));
     connected = true;
     // Display the welcome message
     var message =
@@ -250,20 +250,20 @@ $(function() {
 
   // Whenever the server emits 'new message', update the chat body
   socket.on("new message", data => {
-    console.log("new message: " + data);
+    console.log("new message: " + json.stringify(data));
     addChatMessage(data);
   });
 
   // Whenever the server emits 'user joined', log it in the chat body
   socket.on("user joined", data => {
-    console.log("user joined: " + data);
+    console.log("user joined: " + json.stringify(data));
     log(data.username + " joined");
     addParticipantsMessage(data);
   });
 
   // Whenever the server emits 'user left', log it in the chat body
   socket.on("user left", data => {
-    console.log("user left: " + data);
+    console.log("user left: " + json.stringify(data));
     log(data.username + " left");
     addParticipantsMessage(data);
     removeChatTyping(data);
@@ -271,13 +271,13 @@ $(function() {
 
   // Whenever the server emits 'typing', show the typing message
   socket.on("typing", data => {
-    console.log("typing: " + data);
+    console.log("typing: " + json.stringify(data));
     addChatTyping(data);
   });
 
   // Whenever the server emits 'stop typing', kill the typing message
   socket.on("stop typing", data => {
-    console.log("stop typing: " + data);
+    console.log("stop typing: " + json.stringify(data));
     removeChatTyping(data);
   });
 
