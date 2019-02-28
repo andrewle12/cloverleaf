@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { createPost } from "../../redux/actions/posts";
+import { createYard } from "../../redux/actions/yardsale";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -8,6 +8,7 @@ class YardPost extends Component{
        super(props);
        this.state = {
            title: "",
+           image: "",
            body: "",
            errors: {}
        }
@@ -22,23 +23,35 @@ class YardPost extends Component{
   }
 
    onSubmit(e) {
-       e.preventDefault();
-
-       const newPost = {
+        e.preventDefault();
+        e.target.reset();
+        const newPost = {
+           userName: this.props.auth.user.userName,
            title: this.state.title,
+           image: this.state.image,
            body: this.state.body
        }
 
-       this.props.createPost(newPost);
+       this.props.createYard(newPost);
+       this.resetForm();
    }
 
    onChange(e) {
        this.setState({ [e.target.name] : e.target.value});
    }
+
+   resetForm() {
+       this.setState({
+        title: "",
+        image: "",
+        body: "",
+        errors: {}
+       });
+   }
    
     render() { 
         const { errors } = this.state;
-
+        
         return(
             <div className="card mt-3 mr-1 shadow-sm">
                     <div className="card-body">
@@ -54,6 +67,18 @@ class YardPost extends Component{
                             onChange={this.onChange}
                             error={errors.title}></input>
                             </div>
+
+                            <div className="form-group">
+                            <label>Image URL</label>
+                            <input 
+                            className="form-control"
+                            placeholder="Enter Link to Image"
+                            name="image"
+                            value={this.state.image}
+                            onChange={this.onChange}
+                            error={errors.image}></input>
+                            </div>
+
                             <div className="form-group">
                             <label>Body</label>
                             <textarea 
@@ -65,9 +90,9 @@ class YardPost extends Component{
                             onChange={this.onChange}
                             error={errors.body}></textarea>
                             </div>
+
                             <button type="submit" 
                             className="btn btn-primary"
-                            // onClick={}
                             >Create Post
                             </button>
                         </form>
@@ -78,7 +103,7 @@ class YardPost extends Component{
 }
 
 YardPost.propTypes = {
-    createPost: PropTypes.func.isRequired,
+    createYard: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired
 };
@@ -88,4 +113,4 @@ const mapStateToProps = state => ({
     errors: state.errors
 });
 
-export default connect(mapStateToProps, {createPost})(YardPost);
+export default connect(mapStateToProps, {createYard})(YardPost);
