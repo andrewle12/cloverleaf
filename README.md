@@ -4,7 +4,7 @@
 
 Cloverleaf:
 
-A React site where users can post to forums, connect and photosynthesize with friends, and possibly even sell goods in the yard sale section. It’s kind of like Twitter without the character limits...and Russian bots.
+A React site where users can post to forums, connect and photosynthesize with friends, and possibly even sell goods in the yard sale section. It’s kind of like Twitter without the character limits.
 
 ### Heroku Link:
 
