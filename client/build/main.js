@@ -66,6 +66,8 @@ $(function() {
   const sendMessage = () => {
     var presentDate = moment().format("MMMM Do YYYY, h:mm:ss a");
     var presentTime = moment().format("h:mm a");
+    var userTime = presentTime;
+    var userDate = presentDate;
     var message = $inputMessage.val();
     // Prevent markup from being injected into the message
     message = cleanInput(message);
@@ -73,12 +75,12 @@ $(function() {
     if (message && connected) {
       $inputMessage.val("");
       addChatMessage({
-        username: username + ": (" + presentTime + ") ",
+        username: username + ": (" + userTime + ") ",
         message: message
       });
       // tell server to execute 'new message' and send along one parameter
       socket.emit("new message", message);
-      console.log(username + " (" + presentDate + " )" + ": " + message);
+      console.log(username + " (" + userDate + " )" + ": " + message);
     }
   };
 

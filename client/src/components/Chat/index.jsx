@@ -310,7 +310,7 @@ class Chat extends Component {
               <input
                 className="inputMessage"
                 href="/home"
-                placeholder="Type here..."
+                placeholder="Type chat messages here..."
               />
             </li>
           </ul>
