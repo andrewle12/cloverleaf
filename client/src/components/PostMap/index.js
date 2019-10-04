@@ -15,4 +15,4 @@ PostMap.propTypes = {
    posts: PropTypes.array.isRequired
 }
 
-export default PostMap
+export default PostMap;

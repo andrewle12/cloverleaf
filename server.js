@@ -9,6 +9,7 @@ const db = require("./server/config/keys").mongoURI;
 // importing api routes
 const users = require("./routes/api/users");
 const posts = require("./routes/api/posts");
+const yard = require("./routes/api/yard");
 
 // importing topics
 const topics = require("./routes/api/topics");
@@ -48,6 +49,7 @@ require("./server/config/passport")(passport);
 //app routes
 app.use("/api/users", users);
 app.use("/api/posts", posts);
+app.use("/api/yard", yard);
 app.use("/api/topics", topics);
 
 app.get("*", (req, res) =>
