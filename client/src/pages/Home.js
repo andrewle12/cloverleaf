@@ -36,5 +36,4 @@ function Home() {
     </>
   );
 }
-window.location.reload();
 export default Home;
