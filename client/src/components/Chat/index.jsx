@@ -50,7 +50,7 @@ class Chat extends Component {
       }
       
       .page {
-        height: 83%;
+        height: 50%;
         position: absolute;
         width: 100%;
         margin-top: 18px;
